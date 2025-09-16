@@ -3,6 +3,14 @@ import React from "react";
 type Player = "X" | "O";
 type Cell = Player | null;
 
+type SmallBoard = Cell[]; // 9 cells
+
+type MacroBoard = SmallBoard[]; // 9 small boards
+
+function rcToIndex(row: number, col: number) {
+  return row * 3 + col; // 3 columns per row
+}
+
 type Props = {
   onWin?: (winner: Player | "draw" | null) => void;
 };
